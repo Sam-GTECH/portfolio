@@ -1,0 +1,171 @@
+* {
+    scroll-behavior: smooth;
+    font-family: "Montserrat","Montserrat-fallback",Arial,sans-serif
+}
+
+body {
+  
+}
+
+#riped{
+  position: absolute;
+  z-index: -10;
+  width: 490px;
+  height: auto;
+  top: 960px;
+}
+
+.start .row img {
+    opacity: 0;
+    transition: 1s;
+    margin-top: 90px;
+}
+
+.start .bgh1 {
+  height: 250px;
+  border-top-left-radius: 150px;
+  border-bottom-right-radius: 150px;
+}
+
+.start .bgh1 h1, .start .bgh1 h2{
+  font-family: "Montserrat";
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.start .bgh1 .margintop{
+  margin-top: 40px;
+}
+
+#cpcontainer{
+  margin-bottom: 0px;
+}
+
+#cp1, #cp2, #cp3{
+  height: 40px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#p2{
+  margin-left: -100%;
+}
+
+#p3{
+  margin-left: -200%;
+}
+
+#p1, #p2, #p3{
+  width:300%;
+}
+
+.carousel-item img{
+  margin-top: -40px;
+}
+
+.orange-hover:hover{
+  color: #ff9800 !important
+}
+
+.bigger{ /* This is actually the parameters of the h5 tag */
+    font-size: 1.64rem;
+    line-height: 110%;
+    margin: 1.0933333333rem 0 0.656rem 0;
+}
+
+.custom-body {
+    margin-top: 50px;
+    margin-bottom:0;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.description-p {
+    width: 200%;
+}
+
+table {
+    width: 300%;
+    border: 3px solid purple;
+}
+
+table thead {
+    display: block;
+    float: left
+}
+
+table thead tr th:before {
+    content: "\00a0";
+}
+
+.screenshot {
+    padding-top: 100px
+}
+
+.showcase {
+width: 500px !important;
+}
+
+.download-p {
+    font-size: 200%;
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+}
+
+.os-icons {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 200%;
+}
+
+.easter-egg-inactive {
+    display: none;
+}
+
+.easter-egg-active {
+    display: initial;
+    width: 100%;
+    height: auto;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center
+}
+
+#shmeupscreen{
+  width: 638px;
+  height: auto;
+  margin-left: 110px;
+}
+
+.showcase .iframe {
+    width: 500px;
+    height:auto
+}
+
+.trolldl1{
+  position:absolute;
+  top:800px;
+  right:140px;
+}
+
+.trolldl2{
+  position:absolute;
+  top:200px;
+  left:140px;
+}
+
+.trolldl3{
+  position:absolute;
+  top: 1500px;
+  left:320px;
+}
+
+.contact-mobile .col {
+    padding-bottom: 15px;
+}
