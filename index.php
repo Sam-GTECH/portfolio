@@ -141,7 +141,7 @@
             <h4>Contact [1]</h4>
             <p>Please fill the following form.</p>
             <div class="row">
-                <form class="col s12">
+                <form class="col s12" method="post" action="php/actions/send.php">
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="first_name" type="text" class="validate" required="" aria-required="true">
@@ -193,6 +193,8 @@
             </div>
         </div>
     </div>
+    
+    
 
     <?php require_once "php/requires/footer.php" ?>
 
