@@ -38,6 +38,11 @@
                 <p><?php echo $user['username'] ?><br>
                 <span class="email"><?php echo $user['email'] ?></span><br>
                 Admin: <?php echo $user["is_admin"]==1?"Yes":"No" ?></p>
+                <form method="post" action="php/actions/updateAdmin.php">
+                    <input type='hidden' name='admin' value="<?php echo $user['is_admin']==1?0:1?>"/>
+                    <input type='hidden' name='username' value="<?php echo $user['username']?>" />
+                    <input type='submit' value='update admin' />
+                </form>
             </div>
         <?php } ?>
 
