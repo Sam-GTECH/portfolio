@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 29 Novembre 2022 à 17:14
+-- Généré le :  Mar 29 Novembre 2022 à 18:04
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `portfolio-pro4`
 --
-CREATE DATABASE IF NOT EXISTS `portfolio-pro4` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `portfolio-pro4`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,7 @@ USE `portfolio-pro4`;
 -- Structure de la table `projects`
 --
 
-CREATE TABLE `projects` (
+CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL,
   `para_img` varchar(30) COLLATE utf8_bin NOT NULL DEFAULT 'img/placeholder.png',
   `h1` varchar(30) COLLATE utf8_bin NOT NULL,
@@ -50,14 +48,22 @@ CREATE TABLE `projects` (
   `showcase_img3` varchar(40) COLLATE utf8_bin NOT NULL,
   `showcase_img4` varchar(40) COLLATE utf8_bin NOT NULL,
   `showcase_img5` varchar(40) COLLATE utf8_bin NOT NULL,
-  `download1` varchar(40) COLLATE utf8_bin NOT NULL,
+  `download1` varchar(100) COLLATE utf8_bin NOT NULL,
   `download_text1` varchar(10) COLLATE utf8_bin NOT NULL,
-  `download2` varchar(40) COLLATE utf8_bin NOT NULL,
+  `download2` varchar(100) COLLATE utf8_bin NOT NULL,
   `download_text2` varchar(10) COLLATE utf8_bin NOT NULL,
-  `download3` varchar(40) COLLATE utf8_bin NOT NULL,
+  `download3` varchar(100) COLLATE utf8_bin NOT NULL,
   `download_text3` varchar(10) COLLATE utf8_bin NOT NULL,
   `easter_egg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `projects`
+--
+
+INSERT INTO `projects` (`id`, `para_img`, `h1`, `h2`, `description`, `description_img`, `tab_type`, `tab_genre`, `tab_lang`, `tab_engine`, `tab_status`, `tab_windows`, `tab_mac`, `tab_linux`, `tab_html5`, `tab_android`, `showcase_img1`, `showcase_img2`, `showcase_img3`, `showcase_img4`, `showcase_img5`, `download1`, `download_text1`, `download2`, `download_text2`, `download3`, `download_text3`, `easter_egg_id`) VALUES
+(1, 'img/ut-4.jpg', 'Why Playing Undertale', 'Here\'s a non exhaustive list of reasons to play Undertale', 'escription\r\nThis is the first project we had to do, a website with HTML and CSS.\r\nWe had to choose a game to create our sitte. We chose Undertale because we both love the product of Toby fox\'s mind.\r\nThe site present you a path across the world of Undertale. To each zone its reason to download the game. In this short journey, you\'ll meet a lot of funny characters, who you will gather once you\'ll have download Undertale !', 'img/ut-1.jpg', 'Website/School Project', 'Showcase Website', 'HTML/CSS', '//', 'finished, not hosted', 0, 0, 0, 1, 0, 'img/ut-1.jpg', 'img/ut-2.jpg', 'img/ut-3.jpg', 'img/ut-4.jpg', 'img/ut-5.jpg', '', '', '', '', '', '', 0),
+(2, 'img/placeholder.png', 'Deltarune: Frozen Heart', 'The Weird Route seen from another location', 'When Kris fights Spamton NEO, he\'s alone. Ralsei\'s just talking to the Queen while his friend gets torn to pieces by a bootleg Mettaton NEO and Susie has gone to Noelle\'s room to talk to her. But what if Noelle, convinced the Player will call for her soon, would try to make Susie go at all cost?\r\n\r\nFrozen Heart will be a Deltarune fangame featuring Susie and Noelle in the Weird route of Chapter 2. Taking control of Susie\'s SOUL, you\'ll have to end Noelle\'s delirium caused by you if you don\'t want to loose an important member of the Deltarune cast.', 'img/p2.png', 'Fangame', 'RPG/Bullet Hell', 'Lua', 'LÃ–VE2D (Kristal Engine)', 'In devlopment', 1, 1, 1, 0, 0, 'img/frozen-heart/frozen-heart-1.png', 'img/frozen-heart/frozen-heart-2.png', 'img/frozen-heart/frozen-heart-3.png', 'img/frozen-heart/frozen-heart-4.png', 'img/frozen-heart/frozen-heart-5.png', 'https://gamejolt.com/games/frozen-heart/659908', 'GAMEJOLT', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -65,13 +71,14 @@ CREATE TABLE `projects` (
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) COLLATE utf8_bin NOT NULL,
   `email` varchar(40) COLLATE utf8_bin NOT NULL,
   `password` varchar(80) COLLATE utf8_bin NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Contenu de la table `users`
@@ -79,38 +86,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
 (1, 'Simbel', 'simbel.user@gmail.com', 'ab08d9d71031e1e6c215040c419ea964e3e5928f', 1),
-(2, 'Test', 'test@gmail.com', '1dcbdddddeedbce60659401b8fe6c254706b9a24', 0);
+(2, 'lautrevalentin', 'sbgnhmosgdv@xn--xfgbmonh-w0a.com', 'd19781234e992b11296eb40ad0f0f8deaedc0989', 1),
+(5, 'hh', 'hh@gg.g', '17d5eb2401524d398a845ad3bdd50702bce0b6b2', 0);
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `projects`
---
-ALTER TABLE `projects`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `projects`
---
-ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

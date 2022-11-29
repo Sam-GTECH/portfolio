@@ -47,6 +47,10 @@
                     <input type='hidden' name='username' value="<?php echo $user['username']?>" />
                     <input type='submit' value='update admin' />
                 </form>
+                <form method="post" action="php/actions/deleteUser.php">
+                    <input type='hidden' name='username' value="<?php echo $user['username']?>" />
+                    <input type='submit' value='delete user' />
+                </form>
             <?php } ?>
         </ol>
 
