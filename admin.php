@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="EN">
-
     <head>
         <script src="https://kit.fontawesome.com/7a840548b5.js" crossorigin="anonymous"></script>
         <!--Import Google Icon Font-->
@@ -21,25 +20,52 @@
     <body>
         <?php
             require_once "php/requires/config.php";
-            require_once "php/requires/nav.php"
+            require_once "php/requires/nav.php";
+            if (!isset($_SESSION["user"]) || $_SESSION["user"]["is_admin"]==0){
+                header("Location:index.php");
+                exit();
+            };
         ?>
 
         <h1>Admin Page</h1>
 
-        <h2>Liste des utilisateurs</h2>
+        <h2>Users List</h2>
         <?php
         $sql = "SELECT * FROM users"; 
         $pre = $pdo->prepare($sql); 
         $pre->execute();
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+        $data = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
         
-        foreach($data as $user){ ?>
-            <div class="bloc_user">
-                <p><?php echo $user['username'] ?><br>
+        <ol>
+            <?php
+            foreach($data as $user){ ?>
+                <li><?php echo $user['username'] ?><br>
                 <span class="email"><?php echo $user['email'] ?></span><br>
-                Admin: <?php echo $user["is_admin"]==1?"Yes":"No" ?></p>
-            </div>
-        <?php } ?>
+                Admin: <?php echo $user["is_admin"]==1?"Yes":"No" ?></li>
+            <?php } ?>
+        </ol>
+
+        <h2>Projects List</h2>
+        <?php
+        $sql = "SELECT * FROM projects"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $data = $pre->fetchAll(PDO::FETCH_ASSOC) ?>
+        
+        <?php if (empty($data)): ?>
+            <p>Wow! This place is empty as fuck!<br><br>How about creating a project?</p>
+        <?php else: ?>
+            <ol>
+                <?php
+                foreach($data as $project){ ?>
+                    <li><?php echo $project['h1'] ?><br>
+                    <span class="email"><?php echo $project['h2'] ?></span></li>
+                <?php } ?>
+            </ol>
+        <?php endif; ?>
+        <div class="z-depth-4">
+            <h3>Add a project</h3>
+        </div>
 
         <?php require_once "php/requires/footer.php" ?>
 
