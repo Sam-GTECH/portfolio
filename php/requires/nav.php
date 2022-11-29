@@ -6,7 +6,6 @@
             <li><a href="projects/why-play-undertale.html">Projet HTML+CSS</a></li>
             <li><a href="projects/frozen-heart.html">Frozen Heart</a></li>
             <li><a href="projects/shmeup.html">Shmeup</a></li>
-            //TODO Find a way to change that state dynamically?
             <?php if (isset($_SESSION["user"])==1): ?>
                 <?php if ($_SESSION["user"]["is_admin"]==1): ?>
                     <li class="purple"><a href="admin.php"><?php echo $_SESSION["user"]["username"]."*" ?></a></li>
