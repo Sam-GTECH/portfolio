@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 29 Novembre 2022 à 15:56
+-- Généré le :  Mar 29 Novembre 2022 à 15:59
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `portfolio-pro4`
 --
+CREATE DATABASE IF NOT EXISTS `portfolio-pro4` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `portfolio-pro4`;
 
 -- --------------------------------------------------------
 
