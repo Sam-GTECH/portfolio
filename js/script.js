@@ -46,21 +46,19 @@ $(".bad-apple").click(function() {
 })
 
 $("#form-simbel").click(function() {
-    console.log("hello")
-    console.log($(".modal-content"))
-    $("#contact-form h4").text("Contact Simbel")
-    $("#fh").removeAttr("disabled")
-    $("#shmeup").attr("disabled", "disabled")
-    $("#project").removeAttr("disabled", "disabled")
+    console.log("hello");
+    console.log($(".modal-content"));
+    $("#contact-form h4").text("Contact Simbel");
+    $(".simbelOnly").removeAttr("disabled", "disabled");
+    $(".deadlyOnly").attr("disabled", "disabled");
 })
 
 $("#form-deadly").click(function() {
     console.log("hello")
     console.log($(".modal-content"))
-    $("#contact-form h4").text("Contact Deadly")
-    $("#fh").attr("disabled", "disabled")
-    $("#shmeup").removeAttr("disabled", "disabled")
-    $("#project").removeAttr("disabled", "disabled")
+    $("#contact-form h4").text("Contact Deadly");
+    $(".simbelOnly").attr("disabled", "disabled");
+    $(".deadlyOnly").removeAttr("disabled", "disabled");
 })
 
 $('.footer-easter').click(function() {

@@ -1,8 +1,13 @@
-<?php /*
-$to=
-$from=$_SESSION["user"]
+<?php 
+require_once "../requires/config.php"; 
 
-mail()
+$to=($post);
+$targetProject=$_POST[""];
+$header=$_SESSION["user"];
+
+
+mail($to, "feedbacks from ".$targetProject, $content, $header)
+
 
 header('Location:../../index.php');//on le redirige sur la page d'accueil du site !
-?>*/
+?>
