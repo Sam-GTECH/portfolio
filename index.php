@@ -154,8 +154,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" required="" aria-required="true">
-                            <label for="password">Password</label>
+                            <label id="content" type="content" class="validate" required="" aria-required="true">
+                            <label for="content">content</label>
                         </div>
                     </div>
                     <div class="row">
@@ -169,19 +169,19 @@
                         <p>Which project do you want to talk about?</p>
                         <p>
                             <label>
-                                <input id="fh" name="group1" type="radio">
+                                <input  class="simbelOnly" name="group1" type="radio">
                                 <span>Frozen Heart</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input id="shmeup" name="group1" type="radio">
+                                <input class="deadlyOnly" name="group1" type="radio">
                                 <span>Shmeup</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input id="project" class="with-gap" name="group1" type="radio">
+                                <input class="with-gap" name="group1" type="radio">
                                 <span>Projet HTML+CSS</span>
                             </label>
                         </p>
