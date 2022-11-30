@@ -34,11 +34,11 @@
         $sql = "SELECT * FROM users"; 
         $pre = $pdo->prepare($sql); 
         $pre->execute();
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
+        $userdata = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
         
         <ol>
             <?php
-            foreach($data as $user){ ?>
+            foreach($userdata as $user){ ?>
                 <li><?php echo $user['username'] ?><br>
                 <span class="email"><?php echo $user['email'] ?></span><br>
                 Admin: <?php echo $user["is_admin"]==1?"Yes":"No" ?></li>
@@ -59,27 +59,28 @@
         $sql = "SELECT * FROM projects"; 
         $pre = $pdo->prepare($sql); 
         $pre->execute();
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC) ?>
+        $projectData = $pre->fetchAll(PDO::FETCH_ASSOC) ?>
         
-        <?php if (empty($data)): ?>
+        <?php if (empty($projectData)): ?>
             <p>Wow! This place is empty as fuck!<br><br>How about creating a project?</p>
         <?php else: ?>
             <ol>
                 <?php
-                foreach($data as $project){ ?>
-                    <li><?php echo $project['h1'] ?><br>
+                foreach($projectData as $project){ ?>
+                    <li><a href="page.php?id=<?php echo $project['id'] ?>"><?php echo $project['h1'] ?></a><br>
                     <span class="email"><?php echo $project['h2'] ?></span></li>
                 <?php } ?>
             </ol>
         <?php endif; ?>
         <div class="z-depth-4">
             <h3>Add a project</h3>
-            <form method="post" action="add_project.php" enctype="multipart/form-data">
+            <form method="post" action="php/actions/add_project.php" enctype="multipart/form-data">
                 <input type="hidden" value="<?php echo $_SESSION["user"]["id"] ?>"/>
+                <h4>General data:</h4>
                 <input type="text" placeholder="Project title" name="h1"/>
                 <input type="text" placeholder="A short name that will be shown on the nav bar" name="nav_title"/>
                 <input type="text" placeholder="Project catchphrase" name="h1"/>
-                <input type="text" placeholder="Project description" name="description"/>
+                <textarea placeholder="Project description" name="description"></textarea>
                 <input type="text" placeholder="What's the type of your project?" name="tab_type"/>
                 <input type="text" placeholder="What's the genre of your project?" name="tab_genre"/>
                 <input type="text" placeholder="What language(s) is/are used for your project?" name="tab_lang"/>
@@ -117,20 +118,26 @@
                     </label>
                 </p>
                 <p>Add the parallax image: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif"></p>
-                <p>Add an image that will appear next to the description: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif"></p>
-                <p>Add the images that will be showcased: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif" multiple></p>
+                <p>Add an image that will appear next to the description: <input type="file" name="description_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif"></p>
+                <p>Add the images that will be showcased (up to 5): <input type="file" name="upload[]" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif" multiple></p>
                 <h4>Download links (up to 3):</h4>
                 <p>
-                    Download Link 1: <input type="text" name="download1"/>
-                    Shown Text 1: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img1"/>
+                    Download Link 1: <input type="text" placeholder="https://..." name="download1"/>
+                    Shown Text 1: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_text1"/>
                 </p>
                 <p>
-                    Download Link 2: <input type="text" name="download2"/>
-                    Shown Text 2: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img2"/>
+                    Download Link 2: <input type="text" placeholder="https://..." name="download2"/>
+                    Shown Text 2: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_text2"/>
                 </p>
                 <p>
-                    Download Link 3: <input type="text" name="download3"/>
-                    Shown Text 3: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img3"/>
+                    Download Link 3: <input type="text" placeholder="https://..." name="download3"/>
+                    Shown Text 3: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_text3"/>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="other_admin" />
+                        <span>Did the other admin worked on this project?</span>
+                    </label>
                 </p>
                 <input type="submit" value="Add a project">
             </form>

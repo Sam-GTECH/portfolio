@@ -9,7 +9,7 @@
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); ?>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <?php foreach($data as $project){?>
-                <li><a href="projects/<?php echo $project["nav_title"] ?>.html"><?php echo $project["h1"] ?></a></li>
+                <li><a href="page.php?id=<?php echo $project["id"] ?>"><?php echo $project["nav_title"] ?></a></li>
             <?php } ?>
             <?php if (isset($_SESSION["user"])==1): ?>
                 <?php if ($_SESSION["user"]["is_admin"]==1): ?>
