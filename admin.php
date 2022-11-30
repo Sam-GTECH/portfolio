@@ -74,6 +74,66 @@
         <?php endif; ?>
         <div class="z-depth-4">
             <h3>Add a project</h3>
+            <form method="post" action="add_project.php" enctype="multipart/form-data">
+                <input type="hidden" value="<?php echo $_SESSION["user"]["id"] ?>"/>
+                <input type="text" placeholder="Project title" name="h1"/>
+                <input type="text" placeholder="A short name that will be shown on the nav bar" name="nav_title"/>
+                <input type="text" placeholder="Project catchphrase" name="h1"/>
+                <input type="text" placeholder="Project description" name="description"/>
+                <input type="text" placeholder="What's the type of your project?" name="tab_type"/>
+                <input type="text" placeholder="What's the genre of your project?" name="tab_genre"/>
+                <input type="text" placeholder="What language(s) is/are used for your project?" name="tab_lang"/>
+                <input type="text" placeholder="What engine is used for your project?" name="tab_engine"/>
+                <input type="text" placeholder="What's the state of your project?" name="tab_status"/>
+                <h4>This project is available on:</h4>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="tab_windows" />
+                        <span>Windows</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="tab_mac" />
+                        <span>MacOS</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="tab_linux" />
+                        <span>Linux</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="tab_android" />
+                        <span>Android</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" name="tab_html5" />
+                        <span>Web</span>
+                    </label>
+                </p>
+                <p>Add the parallax image: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif"></p>
+                <p>Add an image that will appear next to the description: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif"></p>
+                <p>Add the images that will be showcased: <input type="file" name="para_img" accept="image/jpg, image/png, image/jpeg, image/webp, image/gif" multiple></p>
+                <h4>Download links (up to 3):</h4>
+                <p>
+                    Download Link 1: <input type="text" name="download1"/>
+                    Shown Text 1: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img1"/>
+                </p>
+                <p>
+                    Download Link 2: <input type="text" name="download2"/>
+                    Shown Text 2: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img2"/>
+                </p>
+                <p>
+                    Download Link 3: <input type="text" name="download3"/>
+                    Shown Text 3: <input type="text" placeholder="Github/Gamejolt/MediaFire" name="download_img3"/>
+                </p>
+                <input type="submit" value="Add a project">
+            </form>
         </div>
 
         <?php require_once "php/requires/footer.php" ?>
