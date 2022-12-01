@@ -120,9 +120,11 @@
 
                 <div class="carousel">
                     <?php for ($i=1; $i < 6; $i++): ?>
-                        <a class="showcase carousel-item" href="#showcase-<?php echo $i ?>">
-                            <img src="<?php echo $pageProject["showcase_img".$i] ?>" alt="Showcase image N°<?php echo $i ?>">
-                        </a>
+                        <?php if (isset($pageProject["showcase_img".$i])): ?>
+                            <a class="showcase carousel-item" href="#showcase-<?php echo $i ?>">
+                                <img src="<?php echo $pageProject["showcase_img".$i] ?>" alt="Showcase image N°<?php echo $i ?>">
+                            </a>
+                        <?php endif; ?>
                     <?php endfor ?>
                 </div>
 

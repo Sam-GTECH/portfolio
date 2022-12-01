@@ -85,17 +85,30 @@
                 foreach($projectData as $project){ ?>
                     <li><a href="page.php?id=<?php echo $project['id'] ?>"><?php echo $project['h1'] ?></a><br>
                     <span class="email"><?php echo $project['h2'] ?></span></li>
+                    <button><a href="modify_project.php?id=<?php echo $project["id"] ?>">Modify</a></button>
+                    <form method="post" action="php/actions/delete_project.php">
+                        <input type='hidden' name='project_id' value="<?php echo $project['id']?>" />
+                        <input type='submit' value='Delete' />
+                    </form>
                 <?php } ?>
             </ol>
         <?php endif; ?>
         <div class="z-depth-4">
             <h3>Add a project</h3>
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="error_box">
+                    <p><?php echo $_SESSION["error"] ?></p>
+                </div>
+            <?php
+                endif;
+                unset($_SESSION['error']);
+            ?>
             <form method="post" action="php/actions/add_project.php" enctype="multipart/form-data">
-                <input type="hidden" value="<?php echo $_SESSION["user"]["id"] ?>"/>
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION["user"]["id"] ?>"/>
                 <h4>General data:</h4>
                 <input type="text" placeholder="Project title" name="h1"/>
                 <input type="text" placeholder="A short name that will be shown on the nav bar" name="nav_title"/>
-                <input type="text" placeholder="Project catchphrase" name="h1"/>
+                <input type="text" placeholder="Project catchphrase" name="h2"/>
                 <textarea placeholder="Project description" name="description"></textarea>
                 <input type="text" placeholder="What's the type of your project?" name="tab_type"/>
                 <input type="text" placeholder="What's the genre of your project?" name="tab_genre"/>
