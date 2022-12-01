@@ -46,8 +46,22 @@
             <div class="row">
                 <div class="purple-text grey darken-4 center bgh1 col s12 offset-m1 m10 offset-l2 l8">
                     <div class="margintop">
-                        <h1>Portfolio</h1>
-                        <h2 class="white-text">Simbel & deadly</h2>
+                        <h1><!--Portfolio-->
+                            <?php
+                                $sql = "SELECT printing FROM mainprinting WHERE place='head1'"; 
+                                $pre = $pdo->prepare($sql); 
+                                $pre->execute();
+                                echo $pre->fetch(PDO::FETCH_ASSOC)["printing"];
+                            ?>
+                        </h1>
+                        <h2 class="white-text"><!--Simbel & deadly-->
+                            <?php
+                                $sql = "SELECT printing FROM mainprinting WHERE place='subtitle1'"; 
+                                $pre = $pdo->prepare($sql); 
+                                $pre->execute();
+                                echo $pre->fetch(PDO::FETCH_ASSOC)["printing"];
+                            ?>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -82,17 +96,31 @@
 
     <div id="about">
         <div class="">
-            <h2 class="header">About ourselves</h2>
+            <h2 class="header"><!--About ourselves-->
+                <?php
+                    $sql = "SELECT printing FROM mainprinting WHERE place='subtitle1'"; 
+                    $pre = $pdo->prepare($sql); 
+                    $pre->execute();
+                    echo $pre->fetch(PDO::FETCH_ASSOC)["printing"];
+                ?>
+            </h2>
             <div class="row">
-                <div class="card horizontal col l6 m12">
+                <div id="simbelCard"class="card horizontal col l6 m12">
                     <div class="card-image">
                         <img src="img/simbel-pdp.webp" alt="Simbel">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <p>A human being with way too much imagination. There are more stories and plot twists in my
+                            <p><!--A human being with way too much imagination. There are more stories and plot twists in my
                                 brain than in any series Netflix may pull out of their ass.<br>Also a jack of all
-                                trades, master of none for now.</p>
+                                trades, master of none for now.-->
+                                <?php
+                                    $sql = "SELECT printing FROM mainprinting WHERE place='simbel-pdp.webmp'"; 
+                                    $pre = $pdo->prepare($sql); 
+                                    $pre->execute();
+                                    echo $pre->fetch(PDO::FETCH_ASSOC)["printing"];
+                                ?>
+                            </p>
                         </div>
                         <div class="card-action">
                             <a href="https://gamejolt.com/@Simbel">Gamejolt</a><a
@@ -102,15 +130,22 @@
                     </div>
                 </div>
 
-                <div class="card horizontal col l6 m12">
+                <div id="deadlyCard" class="card horizontal col l6 m12">
                     <div class="card-image">
                         <img src="img/deadly-pdp.png" alt="Deadly">
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                            <p>Hi there ! I'm just a random student who hates carousels !<br>Actually i don't have
+                            <p><!--Hi there ! I'm just a random student who hates carousels !<br>Actually i don't have
                                 anything else to say but it's not a problem since the content of the site is not that
-                                important, is it ?
+                                important, is it ?-->
+                                <?php
+                                    $sql = "SELECT printing FROM mainprinting WHERE place='deadl-pdp.png'"; 
+                                    $pre = $pdo->prepare($sql); 
+                                    $pre->execute();
+                                    echo $pre->fetch(PDO::FETCH_ASSOC)["printing"];
+                                ?>
+                            </p>
                         </div>
                         <div class="card-action">
                             <a class="modal-trigger hide-on-small-only" id="form-deadly"
@@ -154,8 +189,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <label id="content" type="content" class="validate" required="" aria-required="true">
-                            <label for="content">content</label>
+                            <textarea id="content" name="content" type="content" class="validate" required="" aria-required="true" placeholder="what do you wish us to know ? :)"></textarea>
                         </div>
                     </div>
                     <div class="row">

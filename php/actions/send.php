@@ -1,20 +1,17 @@
 <?php 
-require_once "../requires/config.php"; 
-
 $to=($_SESSION['formTo']);
 $targetProject=$_POST["group1"];
-$header=$_SESSION["user"];
+$content=($_POST["content"]);
+$mail=($_POST["email"]);
 
 
-if mail($to, "feedbacks from ".$targetProject, $content, $header){
+if (mail($to, "feedbacks from ".$targetProject, $content)){
     header('Location:../../index.php');
-    echo "<script type='text/javascript'>M.toast({html:'mail sent successfully'})</script>"
-}
-else{
+    echo "<script type='text/javascript'>M.toast({html:'mail sent successfully'})</script>";
+    exit();
+}else{
     header('Location:../../index.php');
-    echo "<script type='text/javascript'>M.toast({html:'an issue was encountered, please try again'})</script>"
+    echo "<script type='text/javascript'>M.toast({html:'an issue was encountered, please try again'})</script>";
+    exit();
 }
-
-
-
 ?>

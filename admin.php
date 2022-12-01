@@ -28,6 +28,7 @@
         ?>
 
         <h1>Admin Page</h1>
+        <a href="index.php">go back</a>
 
         <h2>Users List</h2>
         <?php
@@ -53,6 +54,21 @@
                 </form>
             <?php } ?>
         </ol>
+
+
+        <h2>Modifie Main</h2>
+        <form method="post" action="php/actions/main_modifie.php" enctype="multipart/form-data">
+            <textarea name="head1" type="text" placeholder="update title ?"></textarea>
+            <textarea name="subtitle1" type="text" placeholder="wanna change first subtitle ?"></textarea>
+            <textarea name="subtitle2" type="text" placeholder="what about the second subtitle ?"></textarea>
+            <textarea name="simbelCardP" type="text" placeholder="update Simbel's description ?"></textarea>
+            <input name="simbel-pdp.webmp" type="file">| update Simbel's image ?</input>
+            <textarea name="deadlyCardP" type="text" placeholder="update Deadly's description ?"></textarea>
+            <input name="deadly-pdp.png" type="file">| update Deadly's image ?</input>
+            <button type="submit">i want to change this !</button>
+        </form>
+
+
 
         <h2>Projects List</h2>
         <?php
