@@ -1,13 +1,20 @@
 <?php 
 require_once "../requires/config.php"; 
 
-$to=($post);
-$targetProject=$_POST[""];
+$to=($_SESSION['formTo']);
+$targetProject=$_POST["group1"];
 $header=$_SESSION["user"];
 
 
-mail($to, "feedbacks from ".$targetProject, $content, $header)
+if mail($to, "feedbacks from ".$targetProject, $content, $header){
+    header('Location:../../index.php');
+    echo "<script type='text/javascript'>M.toast({html:'mail sent successfully'})</script>"
+}
+else{
+    header('Location:../../index.php');
+    echo "<script type='text/javascript'>M.toast({html:'an issue was encountered, please try again'})</script>"
+}
 
 
-header('Location:../../index.php');//on le redirige sur la page d'accueil du site !
+
 ?>

@@ -125,11 +125,11 @@
                 <div class="row">
                     <div class="col s12">
                         <a id="form-simbel" class="modal-trigger waves-effect waves-light btn-small black orange-text"
-                            href="#contact-form">Contact Simbel</a>
+                            href="php/actions/form_deadly">Contact Simbel</a>
                     </div>
                     <div class="col s12">
                         <a id="form-deadly" class="modal-trigger waves-effect waves-light btn-small black orange-text"
-                            href="#contact-form">Contact Deadly</a>
+                            href="php/actions/form_deadly">Contact Deadly</a>
                     </div>
                 </div>
             </div>
