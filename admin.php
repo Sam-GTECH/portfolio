@@ -69,6 +69,11 @@
                 foreach($projectData as $project){ ?>
                     <li><a href="page.php?id=<?php echo $project['id'] ?>"><?php echo $project['h1'] ?></a><br>
                     <span class="email"><?php echo $project['h2'] ?></span></li>
+                    <button><a href="modify_project.php?id=<?php echo $project["id"] ?>">Modify</a></button>
+                    <form method="post" action="php/actions/delete_project.php">
+                        <input type='hidden' name='project_id' value="<?php echo $project['id']?>" />
+                        <input type='submit' value='Delete' />
+                    </form>
                 <?php } ?>
             </ol>
         <?php endif; ?>
