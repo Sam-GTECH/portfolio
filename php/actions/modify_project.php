@@ -47,13 +47,15 @@
     }
 
     for( $i=0 ; $i < $total ; $i++ ) {
-        if ($_FILES["upload"]["error"][$i]!=0){
+        if ($_FILES["upload"]["error"][$i]!=0 && $_FILES["upload"]["error"][$i]!=4){
             $_SESSION["error"]="An error has occured when uploading the following image: ".$_FILES["upload"]["name"][$i];
             header("Location:../../admin.php");
             exit();
         }
     }
 
+    $folder = str_replace(" ", "-", strtolower($_POST["old_nav_title"])).".".$_POST["user_id"];
+    rmdir("../../img/".$folder);
     $folder = str_replace(" ", "-", strtolower($_POST["nav_title"])).".".$_POST["user_id"];
     if (!is_dir("../../img/".$folder)){
         if (!mkdir("../../img/".$folder)){
@@ -77,9 +79,9 @@
         }
     }
 
-    $sql = "INSERT INTO projects(user_id,nav_title,para_img,h1,h2,description,description_img,tab_type,tab_genre,tab_lang,tab_engine,tab_status,tab_windows,tab_mac,tab_linux,tab_html5,tab_android,showcase_img1,showcase_img2,showcase_img3,showcase_img4,showcase_img5,download1,download_text1,download2,download_text2,download3,download_text3, pair_work) VALUES(:user_id,:nav_title,:para_img,:h1,:h2,:description,:description_img,:tab_type,:tab_genre,:tab_lang,:tab_engine,:tab_status,:tab_windows,:tab_mac,:tab_linux,:tab_html5,:tab_android,:showcase_img1,:showcase_img2,:showcase_img3,:showcase_img4,:showcase_img5,:download1,:download_text1,:download2,:download_text2,:download3,:download_text3,:pair_work)";
+    $sql = "UPDATE projects SET nav_title=:nav_title,para_img=:para_img,h1=:h1,h2=:h2,description=:description,description_img=:description_img,tab_type=:tab_type,tab_genre=:tab_genre,tab_lang=:tab_lang,tab_engine=:tab_engine,tab_status=:tab_status,tab_windows=:tab_windows,tab_mac=:tab_mac,tab_linux=:tab_linux,tab_html5=:tab_html5,tab_android=:tab_android,showcase_img1=:showcase_img1,showcase_img2=:showcase_img2,showcase_img3=:showcase_img3,showcase_img4=:showcase_img4,showcase_img5=:showcase_img5,download1=:download1,download_text1=:download_text1,download2=:download2,download_text2=:download_text2,download3=:download3,download_text3=:download_text3, pair_work=:pair_work WHERE id=:id";
     $dataBinded=array(
-        "user_id"          => $_POST["user_id"],
+        ":id"              => $_POST["id"],
         ":nav_title"       => $_POST['nav_title'],
         ":para_img"        => $destinationPara,
         ":h1"              => $_POST['h1'],
